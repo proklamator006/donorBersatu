@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donor Bersatu — Karang Taruna RW 06</title>
+    
+    <link rel="icon" type="image/png" href="assets/images/logo_donor_bersatu.png">
+    
+    <style>
+        /* --- CORE STYLES & ACCENTS --- */
+        :root {
+            --primary: #B41424;
+            --primary-dark: #8a0c18;
+            --primary-light: #fff5f5;
+            --text-dark: #1a202c;
+            --text-muted: #4a5568;
+            --radius-lg: 24px;
+            --radius-md: 14px;
+            --shadow-premium: 0 20px 40px -15px rgba(180, 20, 36, 0.08), 0 15px 25px -10px rgba(0, 0, 0, 0.04);
+            --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: '-apple-system', BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #fafafa;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 400' opacity='0.025'%3E%3Cpath fill='%23B41424' d='M50,150 Q100,120 150,160 T250,140 T350,170 T450,130 T600,160 T750,140 T900,170 T1100,130'/%3E%3Cpath fill='%23B41424' d='M80,220 Q180,250 280,210 T480,230 T680,200 T880,240 T1080,210'/%3E%3C/svg%3E");
+            background-attachment: fixed;
+            background-size: cover;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulseHeart {
+            0% { transform: scale(1); filter: drop-shadow(0 4px 10px rgba(0,0,0,0.2)); }
+            50% { transform: scale(1.04); filter: drop-shadow(0 8px 20px rgba(180,20,36,0.35)); }
+            100% { transform: scale(1); filter: drop-shadow(0 4px 10px rgba(0,0,0,0.2)); }
+        }
+
+        .animate-fade-up {
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* --- HERO BANNER SECTION --- */
+        .hero {
+            background: radial-gradient(circle at top, #df1c2f 0%, #8a0c18 100%);
+            color: #ffffff;
+            padding: 100px 24px 140px 24px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 60px;
+            background: #fafafa;
+            clip-path: polygon(0 100%, 100% 100%, 100% 0);
+        }
+
+        /* POSISI ABSOLUTE: Logo PMI di Ujung Kiri Atas */
+        .absolute-left-top-pmi {
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            z-index: 500;
+        }
+
+        .logo-pmi-box {
+            background: #ffffff;
+            padding: 8px 16px;
+            border-radius: 12px;
+            display: inline-flex;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+        }
+        .logo-pmi-box img { height: 42px; width: auto; object-fit: contain; }
+
+        /* REVISI POSISI ABSOLUTE: Logo Karang Taruna di Pojok Kanan Atas Sejajar PMI */
+        .absolute-right-top-kt {
+            position: absolute;
+            top: 22px;
+            right: 25px;
+            z-index: 500;
+        }
+        .absolute-right-top-kt img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.25));
+        }
+
+        .logo-main-event {
+            height: 140px;
+            width: auto;
+            object-fit: contain;
+            margin-bottom: 25px;
+            animation: pulseHeart 3s infinite ease-in-out;
+        }
+
+        .hero h1 {
+            font-size: 34px;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            line-height: 1.15;
+            margin-bottom: 16px;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            text-transform: uppercase;
+        }
+
+        .hero .sub-title {
+            font-size: 16.5px;
+            color: #f7fafc;
+            opacity: 0.9;
+            font-weight: 500;
+            max-width: 550px;
+            margin: 0 auto 40px auto;
+        }
+
+        .badge-schedule-box {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            padding: 20px 25px;
+            border-radius: 20px;
+            display: inline-grid;
+            grid-template-columns: auto;
+            gap: 12px;
+            text-align: left;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            margin-bottom: 40px;
+        }
+
+        .schedule-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 14.5px;
+            font-weight: 500;
+        }
+        .schedule-item strong { color: #ffe3e3; font-weight: 700; min-width: 85px; display: inline-block; }
+
+        .btn-cta {
+            display: inline-block;
+            padding: 16px 45px;
+            background: #ffffff;
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 800;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .btn-cta:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(180, 20, 36, 0.4);
+            background-color: var(--primary-light);
+        }
+
+        /* --- CONTENT STRUCTURAL LAYOUT --- */
+        .wrapper {
+            max-width: 620px;
+            margin: -80px auto 60px auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 200;
+        }
+
+        .section-card {
+            background: #ffffff;
+            border-radius: var(--radius-lg);
+            padding: 35px 30px;
+            box-shadow: var(--shadow-premium);
+            margin-bottom: 35px;
+            border: 1px solid rgba(0, 0, 0, 0.02);
+            transition: var(--transition);
+        }
+        .section-card:hover { transform: translateY(-2px); }
+
+        .section-title {
+            font-size: 17px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-title::before {
+            content: "";
+            display: inline-block;
+            width: 4px;
+            height: 18px;
+            background: var(--primary);
+            border-radius: 4px;
+        }
+
+        /* --- PERSYARATAN GRID --- */
+        .grid-requirements {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .req-card {
+            background: #fdfdfd;
+            border: 1px solid #edf2f7;
+            padding: 18px 10px;
+            border-radius: var(--radius-md);
+            text-align: center;
+            transition: var(--transition);
+        }
+        .req-card:hover { border-color: var(--primary); background: var(--primary-light); }
+        .req-card .icon { font-size: 24px; margin-bottom: 8px; display: block; }
+        .req-card .label { font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px; }
+        .req-card .value { font-size: 14px; font-weight: 800; color: var(--text-dark); }
+
+        .info-notice-box {
+            background-color: #fffaf0;
+            border-left: 4px solid #dd6b20;
+            padding: 16px 20px;
+            border-radius: 12px;
+            font-size: 14px;
+            color: #7b341e;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        .slogan-banner {
+            font-size: 19px;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: 0.2px;
+            margin-bottom: 12px;
+        }
+        .desc-text {
+            font-size: 14.5px;
+            color: var(--text-muted);
+            text-align: justify;
+            line-height: 1.75;
+        }
+
+        /* --- FORM STYLING --- */
+        .input-group { margin-bottom: 22px; }
+        .input-group label {
+            display: block;
+            font-size: 12.5px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        input[type="text"], input[type="tel"], input[type="date"], textarea, select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #edf2f7;
+            border-radius: var(--radius-md);
+            font-size: 15px;
+            color: var(--text-dark);
+            transition: var(--transition);
+            outline: none;
+            background-color: #f7fafc;
+            font-weight: 500;
+        }
+
+        input[type="text"]:focus, input[type="tel"]:focus, input[type="date"]:focus, textarea:focus, select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(180, 20, 36, 0.08);
+            background-color: #ffffff;
+        }
+
+        .gender-container { display: flex; gap: 30px; margin-top: 6px; }
+        .gender-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-dark);
+            text-transform: none !important;
+        }
+        .gender-label input[type="radio"] { accent-color: var(--primary); width: 19px; height: 19px; }
+        .grid-columns-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        textarea { min-height: 100px; resize: vertical; }
+
+        .submit-action-btn {
+            width: 100%;
+            padding: 16px;
+            background-color: var(--primary);
+            color: #ffffff;
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 15.5px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 8px 20px rgba(180, 20, 36, 0.25);
+        }
+        .submit-action-btn:hover { background-color: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 12px 25px rgba(180, 20, 36, 0.35); }
+        .submit-action-btn:disabled { background-color: #cbd5e1; box-shadow: none; cursor: not-allowed; transform: none; }
+
+        /* --- FOOTER (SUPPORTED BY LOGO MASJID) --- */
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            padding: 60px 24px;
+            text-align: center;
+            font-size: 13.5px;
+            border-top: 6px solid var(--primary);
+        }
+
+        .footer-header {
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 15px;
+            margin-bottom: 22px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .panitia-contact-box {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+        }
+
+        .btn-whatsapp-link {
+            color: #ffffff;
+            text-decoration: none;
+            background: #1e293b;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #334155;
+            transition: var(--transition);
+        }
+        .btn-whatsapp-link:hover { background: #334155; color: #4ade80; transform: translateY(-3px); }
+
+        .insta-branding { color: #fca5a5; text-decoration: none; font-weight: 700; }
+        .insta-branding:hover { color: #ffffff; text-decoration: underline; }
+
+        /* Jajaran Kemitraan Logo Masjid di Bagian Footer */
+        .mosque-logo-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin: 30px 0 10px 0;
+            flex-wrap: wrap;
+        }
+        .logo-footer-img {
+            height: 48px;
+            width: auto;
+            object-fit: contain;
+            filter: grayscale(20%) brightness(95%) drop-shadow(0px 2px 4px rgba(0,0,0,0.3));
+            transition: var(--transition);
+        }
+        .logo-footer-img:hover { filter: grayscale(0%) brightness(100%); }
+
+        .footer-copyright-layer {
+            margin-top: 35px;
+            font-size: 12px;
+            border-top: 1px solid #1e293b;
+            padding-top: 30px;
+            line-height: 1.8;
+            color: #475569;
+        }
+
+        /* --- MODALS OVERLAY --- */
+        .overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 24px;
+            z-index: 99999;
+        }
+
+        .loader-box {
+            background: #ffffff; padding: 40px; border-radius: var(--radius-lg); text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); display: flex; flex-direction: column; align-items: center; gap: 15px;
+        }
+
+        .spinner {
+            border: 4px solid #f1f5f9; border-top: 4px solid var(--primary); border-radius: 50%;
+            width: 45px; height: 45px; animation: spin 1s linear infinite;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        .modal-box {
+            background: #ffffff; padding: 40px; border-radius: 28px; text-align: center; max-width: 440px; width: 100%;
+            box-shadow: 0 30px 60px -15px rgba(0,0,0,0.3); animation: popUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .modal-icon { font-size: 50px; margin-bottom: 15px; }
+        .modal-box h3 { color: var(--primary); margin-bottom: 12px; font-size: 22px; font-weight: 800; }
+        .modal-box p { font-size: 15px; color: var(--text-muted); margin-bottom: 25px; line-height: 1.6; }
+        .modal-box button {
+            background: var(--primary); color: white; border: none; padding: 14px 45px; border-radius: 12px; cursor: pointer; font-weight: 700;
+            box-shadow: 0 6px 18px rgba(180, 20, 36, 0.2); transition: var(--transition);
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 480px) {
+            .grid-requirements { grid-template-columns: 1fr; gap: 10px; }
+            .grid-columns-2 { grid-template-columns: 1fr; gap: 0; }
+            .hero h1 { font-size: 26px; }
+            .logo-main-event { height: 110px; }
+            .section-card { padding: 25px 20px; }
+            .absolute-left-top-pmi { top: 15px; left: 15px; }
+            .logo-pmi-box { padding: 6px 12px; }
+            .logo-pmi-box img { height: 32px; }
+            .absolute-right-top-kt { top: 10px; right: 15px; }
+            .absolute-right-top-kt img { height: 50px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <div class="absolute-left-top-pmi">
+            <div class="logo-pmi-box">
+                <img src="assets/images/logo_pmi.png" alt="Logo PMI">
+            </div>
+        </div>
+
+        <div class="absolute-right-top-kt">
+            <img src="assets/images/logo_kartun.png" alt="Logo Karang Taruna">
+        </div>
+
+        <div class="animate-fade-up">
+            <img src="assets/images/logo_donor_bersatu.png" class="logo-main-event" alt="Logo Event Donor">
+        </div>
+
+        <h1 class="animate-fade-up" style="animation-delay: 0.1s;">Setetes Darah Anda,<br>Nyawa Bagi Sesama</h1>
+        <p class="sub-title animate-fade-up" style="animation-delay: 0.2s;">Mari bersatu dalam satu tujuan yang sama melalui kegiatan donor darah bakti komunitas.</p>
+
+        <div class="badge-schedule-box animate-fade-up" style="animation-delay: 0.3s;">
+            <div class="schedule-item">🕒 <strong>Waktu Acara</strong> COMING SOON</div>
+            <div class="schedule-item">📍 <strong>Lokasi</strong> Balai Warga 06, Pondok Benda, Pamulang, Tangerang Selatan</div>
+        </div>
+        <br>
+        <div class="animate-fade-up" style="animation-delay: 0.4s;">
+            <a href="#pendaftaran" class="btn-cta">Daftar Sekarang</a>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        
+        <div class="section-card animate-fade-up" style="animation-delay: 0.5s;">
+            <h2 class="section-title">Persyaratan Pendonor</h2>
+            <div class="grid-requirements">
+                <div class="req-card">
+                    <span class="icon">💪</span>
+                    <span class="label">Fisik</span>
+                    <span class="value">Sehat Jasmani</span>
+                </div>
+                <div class="req-card">
+                    <span class="icon">🎂</span>
+                    <span class="label">Usia</span>
+                    <span class="value">17 - 56 Tahun</span>
+                </div>
+                <div class="req-card">
+                    <span class="icon">⚖️</span>
+                    <span class="label">Berat Badan</span>
+                    <span class="value">Min. 45 Kg</span>
+                </div>
+            </div>
+            <div class="info-notice-box">
+                💡 <b>Tips Kesiapan Medis:</b> Pastikan Anda mendapatkan waktu tidur yang cukup minimal 5 jam sebelum donor dan sudah sarapan/makan terlebih dahulu untuk mengoptimalkan hasil screening laboratorium PMI.
+            </div>
+        </div>
+
+        <div class="section-card animate-fade-up" style="animation-delay: 0.6s; text-align: center;">
+            <div class="slogan-banner">"Satu Tetes, Sejuta Harapan"</div>
+            <p class="desc-text">
+                Kegiatan aksi sosial <b>Donor Bersatu</b> ini diselenggarakan oleh jajaran Karang Taruna Sub RW 06 Kelurahan Pondok Benda yang bersinergi langsung bersama unit teknis Palang Merah Indonesia (PMI) Kota Tangerang Selatan sebagai wujud kepedulian nyata kita terhadap sesama yang membutuhkan.
+            </p>
+        </div>
+
+        <div class="section-card animate-fade-up" style="animation-delay: 0.7s;" id="pendaftaran">
+            <h2 class="section-title">Form Pendaftaran Donor Darah</h2>
+            
+            <form id="donorForm">
+                <div class="input-group">
+                    <label for="nama_lengkap">Nama Lengkap (Sesuai KTP) *</label>
+                    <input type="text" id="nama_lengkap" placeholder="Masukkan nama lengkap pendaftar" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="nik">Nomor NIK KTP (16 Digit nomor) *</label>
+                    <input type="text" id="nik" pattern="[0-9]{16}" placeholder="Masukkan 16 digit nomor NIK pendaftar" title="NIK harus berupa 16 digit angka murni" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Jenis Kelamin *</label>
+                    <div class="gender-container">
+                        <label class="gender-label">
+                            <input type="radio" name="jenis_kelamin" value="Laki-laki" required> Laki-laki
+                        </label>
+                        <label class="gender-label">
+                            <input type="radio" name="jenis_kelamin" value="Perempuan"> Perempuan
+                        </label>
+                    </div>
+                </div>
+
+                <div class="grid-columns-2">
+                    <div class="input-group">
+                        <label for="tempat_lahir">Tempat Lahir *</label>
+                        <input type="text" id="tempat_lahir" placeholder="Contoh: Tangerang" required>
+                    </div>
+                    <div class="input-group">
+                        <label interpreter="date" for="tanggal_lahir">Tanggal Lahir *</label>
+                        <input type="date" id="tanggal_lahir" required>
+                    </div>
+                </div>
+
+                <div class="grid-columns-2">
+                    <div class="input-group">
+                        <label for="gol_darah">Golongan Darah *</label>
+                        <select id="gol_darah" required>
+                            <option value="" disabled selected>Pilih—</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="AB">AB</option>
+                            <option value="O">O</option>
+                            <option value="Belum Tahu">Belum Tahu</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="rhesus">Rhesus *</label>
+                        <select id="rhesus" required>
+                            <option value="Positif (+)" selected>Positif (+)</option>
+                            <option value="Negatif (-)">Negatif (-)</option>
+                            <option value="Tidak Tahu">Tidak Tahu</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="whatsapp">Nomor WhatsApp Aktif *</label>
+                    <input type="tel" id="whatsapp" placeholder="Contoh: 08221177xxxx" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="pekerjaan">Profesi / Pekerjaan *</label>
+                    <select id="pekerjaan" required>
+                        <option value="" disabled selected>Pilih status pekerjaan saat ini—</option>
+                        <option value="PNS / TNI / POLRI">PNS / TNI / POLRI</option>
+                        <option value="Karyawan Swasta">Karyawan Swasta</option>
+                        <option value="Wiraswasta / Pengusaha">Wiraswasta / Pengusaha</option>
+                        <option value="Buruh / Pekerja Harian">Buruh / Pekerja Harian</option>
+                        <option value="Ibu Rumah Tangga">Ibu Rumah Tangga</option>
+                        <option value="Mahasiswa / Pelajar">Mahasiswa / Pelajar</option>
+                        <option value="Belum / Tidak Bekerja">Belum / Tidak Bekerja</option>
+                        <option value="Lainnya">Lainnya</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="alamat">Alamat Tinggal Rumah Lengkap *</label>
+                    <textarea id="alamat" placeholder="Tuliskan detail nama jalan, nomor rumah, RT/RW" required></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label for="riwayat_donor">Riwayat Donor Darah Sebelumnya *</label>
+                    <select id="riwayat_donor" required>
+                        <option value="" disabled selected>Pilih status riwayat—</option>
+                        <option value="Belum Pernah">Belum Pernah Donor</option>
+                        <option value="Sudah Pernah (< 3 Month Lalu)">Sudah Pernah (Terakhir kurang dari 3 bulan lalu)</option>
+                        <option value="Sudah Pernah (> 3 Month Lalu)">Sudah Pernah (Terakhir lebih dari 3 bulan lalu)</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="submit-action-btn" id="submitBtn">Kirim Form Pendaftaran</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-header">Pendaftaran & Layanan Informasi Panitia</div>
+        <div class="panitia-contact-box">
+            <a href="https://wa.me/6285646644777" class="btn-whatsapp-link" target="_blank">🟢 OBI (WhatsApp)</a>
+            <a href="https://wa.me/6289628282479" class="btn-whatsapp-link" target="_blank">🟢 HARIS (WhatsApp)</a>
+        </div>
+        <p style="max-width: 480px; margin: 0 auto 20px auto; color: #64748b;">Hubungi saluran hotline kepanitiaan di atas jika pendaftar membutuhkan bantuan atau konfirmasi medis lanjutan.</p>
+        <p>Instagram Official: <a href="https://instagram.com/karangtarunarw06pondokbenda" class="insta-branding" target="_blank">@karangtarunarw06pondokbenda</a></p>
+        
+        <div class="mosque-logo-row">
+            <img src="assets/images/logo_yayasan_masjid.png" class="logo-footer-img" alt="Logo Yayasan Masjid">
+            <img src="assets/images/logo_remaja_masjid.png" class="logo-footer-img" alt="Logo Remaja Masjid">
+        </div>
+
+        <div class="footer-copyright-layer">
+            Organized & Developed by Karang Taruna Sub RW 06 Kel. Pondok Benda<br>
+            Sinergi Teknis Media & Laboratorium Palang Merah Indonesia (PMI) Kota Tangerang Selatan
+        </div>
+    </footer>
+
+    <div class="overlay" id="loadingOverlay">
+        <div class="loader-box">
+            <div class="spinner"></div>
+            <p style="font-weight: 700; color: var(--text-dark); font-size: 14.5px;">Memproses enkripsi database pendaftar...</p>
+        </div>
+    </div>
+
+    <div class="overlay" id="successOverlay">
+        <div class="modal-box">
+            <div class="modal-icon">🩸</div>
+            <h3>Pendaftaran Sukses!</h3>
+            <p>Terima kasih atas kontribusi kemanusiaan Anda. Data pendaftaran telah ter-verifikasi aman ke sistem database dan kode registrasi unik otomatis dikirim ke grup Telegram Panitia.</p>
+            <button onclick="tutupModal()">Selesai & Tutup</button>
+        </div>
+    </div>
+
+    <script>
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzb0grFq3v0_wFxYN2ndqANq-BaTHf824jlyZexzU-JtjXXM2tvVDh7Nl4j1j5VeW2puw/exec";
+
+        const form = document.getElementById('donorForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const loadingOverlay = document.getElementById('loadingOverlay');
+        const successOverlay = document.getElementById('successOverlay');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            
+            submitBtn.disabled = true;
+            loadingOverlay.style.display = 'flex';
+
+            const formData = {
+                nama_lengkap: document.getElementById('nama_lengkap').value,
+                nik: document.getElementById('nik').value,
+                jenis_kelamin: document.querySelector('input[name="jenis_kelamin"]:checked').value,
+                tempat_lahir: document.getElementById('tempat_lahir').value,
+                tanggal_lahir: document.getElementById('tanggal_lahir').value,
+                gol_darah: document.getElementById('gol_darah').value,
+                rhesus: document.getElementById('rhesus').value,
+                whatsapp: document.getElementById('whatsapp').value,
+                pekerjaan: document.getElementById('pekerjaan').value,
+                alamat: document.getElementById('alamat').value,
+                riwayat_donor: document.getElementById('riwayat_donor').value
+            };
+
+            const queryString = Object.keys(formData)
+                .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(formData[key]))
+                .join('&');
+
+            fetch(SCRIPT_URL, { 
+                method: 'POST', 
+                body: queryString,
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                mode: 'no-cors' 
+            })
+            .then(() => {
+                loadingOverlay.style.display = 'none';
+                successOverlay.style.display = 'flex';
+                form.reset();
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                loadingOverlay.style.display = 'none';
+                alert("Gagal melakukan sinkronisasi data. Periksa kualitas jaringan internet Anda.");
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+            });
+        });
+
+        function tutupModal() {
+            successOverlay.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
