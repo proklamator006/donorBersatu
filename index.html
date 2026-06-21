@@ -59,7 +59,7 @@
         .hero {
             background: radial-gradient(circle at top, #df1c2f 0%, #8a0c18 100%);
             color: #ffffff;
-            padding: 100px 24px 140px 24px;
+            padding: 130px 24px 140px 24px; /* Ruang atas ditambah agar logo besar tidak sesak */
             text-align: center;
             position: relative;
         }
@@ -73,7 +73,7 @@
             clip-path: polygon(0 100%, 100% 100%, 100% 0);
         }
 
-        /* POSISI ABSOLUTE: Logo PMI di Ujung Kiri Atas */
+        /* PERBAIKAN: Wadah Logo PMI Ujung Kiri Atas Diperbesar */
         .absolute-left-top-pmi {
             position: absolute;
             top: 25px;
@@ -83,14 +83,18 @@
 
         .logo-pmi-box {
             background: #ffffff;
-            padding: 8px 16px;
-            border-radius: 12px;
+            padding: 12px 24px; /* Padding ditambah agar wadah lebih kokoh */
+            border-radius: 14px;
             display: inline-flex;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
         }
-        .logo-pmi-box img { height: 42px; width: auto; object-fit: contain; }
+        .logo-pmi-box img { 
+            height: 55px; /* Diperbesar signifikan dari 42px */
+            width: auto; 
+            object-fit: contain; 
+        }
 
-        /* REVISI POSISI ABSOLUTE: Logo Karang Taruna di Pojok Kanan Atas Sejajar PMI */
+        /* PERBAIKAN: Logo Karang Taruna Pojok Kanan Atas Diperbesar */
         .absolute-right-top-kt {
             position: absolute;
             top: 22px;
@@ -98,10 +102,10 @@
             z-index: 500;
         }
         .absolute-right-top-kt img {
-            height: 60px;
+            height: 80px; /* Diperbesar signifikan dari 60px */
             width: auto;
             object-fit: contain;
-            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.25));
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
         }
 
         .logo-main-event {
@@ -328,7 +332,7 @@
         .submit-action-btn:hover { background-color: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 12px 25px rgba(180, 20, 36, 0.35); }
         .submit-action-btn:disabled { background-color: #cbd5e1; box-shadow: none; cursor: not-allowed; transform: none; }
 
-        /* --- FOOTER (SUPPORTED BY LOGO MASJID) --- */
+        /* --- FOOTER --- */
         footer {
             background-color: #0f172a;
             color: #94a3b8;
@@ -373,7 +377,6 @@
         .insta-branding { color: #fca5a5; text-decoration: none; font-weight: 700; }
         .insta-branding:hover { color: #ffffff; text-decoration: underline; }
 
-        /* Jajaran Kemitraan Logo Masjid di Bagian Footer */
         .mosque-logo-row {
             display: flex;
             justify-content: center;
@@ -442,14 +445,15 @@
         @media (max-width: 480px) {
             .grid-requirements { grid-template-columns: 1fr; gap: 10px; }
             .grid-columns-2 { grid-template-columns: 1fr; gap: 0; }
+            .hero { padding: 110px 15px 120px 15px; }
             .hero h1 { font-size: 26px; }
             .logo-main-event { height: 110px; }
             .section-card { padding: 25px 20px; }
             .absolute-left-top-pmi { top: 15px; left: 15px; }
-            .logo-pmi-box { padding: 6px 12px; }
-            .logo-pmi-box img { height: 32px; }
-            .absolute-right-top-kt { top: 10px; right: 15px; }
-            .absolute-right-top-kt img { height: 50px; }
+            .logo-pmi-box { padding: 8px 16px; }
+            .logo-pmi-box img { height: 38px; } /* Responsif HP */
+            .absolute-right-top-kt { top: 12px; right: 15px; }
+            .absolute-right-top-kt img { height: 56px; } /* Responsif HP */
         }
     </style>
 </head>
@@ -458,16 +462,16 @@
     <div class="hero">
         <div class="absolute-left-top-pmi">
             <div class="logo-pmi-box">
-                <img src="logo_pmi.png" alt="Logo PMI">
+                <img src="assets/images/logo_pmi.png" alt="Logo PMI">
             </div>
         </div>
 
         <div class="absolute-right-top-kt">
-            <img src="logo_kartun.png" alt="Logo Karang Taruna">
+            <img src="assets/images/logo_kartun.png" alt="Logo Karang Taruna">
         </div>
 
         <div class="animate-fade-up">
-            <img src="logo_donor_bersatu.png" class="logo-main-event" alt="Logo Event Donor">
+            <img src="assets/images/logo_donor_bersatu.png" class="logo-main-event" alt="Logo Event Donor">
         </div>
 
         <h1 class="animate-fade-up" style="animation-delay: 0.1s;">Setetes Darah Anda,<br>Nyawa Bagi Sesama</h1>
@@ -548,7 +552,7 @@
                         <input type="text" id="tempat_lahir" placeholder="Contoh: Tangerang" required>
                     </div>
                     <div class="input-group">
-                        <label interpreter="date" for="tanggal_lahir">Tanggal Lahir *</label>
+                        <label for="tanggal_lahir">Tanggal Lahir *</label>
                         <input type="date" id="tanggal_lahir" required>
                     </div>
                 </div>
@@ -625,8 +629,8 @@
         <p>Instagram Official: <a href="https://instagram.com/karangtarunarw06pondokbenda" class="insta-branding" target="_blank">@karangtarunarw06pondokbenda</a></p>
         
         <div class="mosque-logo-row">
-            <img src="logo_yayasan nh.png" class="logo-footer-img" alt="Logo Yayasan Masjid">
-            <img src="logo_remina.png" class="logo-footer-img" alt="Logo Remaja Masjid">
+            <img src="assets/images/logo_yayasan_masjid.png" class="logo-footer-img" alt="Logo Yayasan Masjid">
+            <img src="assets/images/logo_remaja_masjid.png" class="logo-footer-img" alt="Logo Remaja Masjid">
         </div>
 
         <div class="footer-copyright-layer">
@@ -652,7 +656,7 @@
     </div>
 
     <script>
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz7JgaNZxZaa25NoVLkQVDsU8uSKpZKSDBW6LXQ4sUkgVb5an3IeprLetsbxQ6u5YMPIg/exec";
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzb0grFq3v0_wFxYN2ndqANq-BaTHf824jlyZexzU-JtjXXM2tvVDh7Nl4j1j5VeW2puw/exec";
 
         const form = document.getElementById('donorForm');
         const submitBtn = document.getElementById('submitBtn');
