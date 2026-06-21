@@ -59,7 +59,7 @@
         .hero {
             background: radial-gradient(circle at top, #df1c2f 0%, #8a0c18 100%);
             color: #ffffff;
-            padding: 130px 24px 140px 24px; /* Ruang atas ditambah agar logo besar tidak sesak */
+            padding: 130px 24px 140px 24px; /* Ditambah agar memberi ruang untuk jajaran logo besar di atas */
             text-align: center;
             position: relative;
         }
@@ -73,7 +73,7 @@
             clip-path: polygon(0 100%, 100% 100%, 100% 0);
         }
 
-        /* PERBAIKAN: Wadah Logo PMI Ujung Kiri Atas Diperbesar */
+        /* FIX POSISI KIRI ATAS: Wadah Logo PMI Diperbesar */
         .absolute-left-top-pmi {
             position: absolute;
             top: 25px;
@@ -83,18 +83,18 @@
 
         .logo-pmi-box {
             background: #ffffff;
-            padding: 12px 24px; /* Padding ditambah agar wadah lebih kokoh */
+            padding: 12px 24px;
             border-radius: 14px;
             display: inline-flex;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
         }
         .logo-pmi-box img { 
-            height: 55px; /* Diperbesar signifikan dari 42px */
+            height: 55px; /* Ukuran besar mantap */
             width: auto; 
             object-fit: contain; 
         }
 
-        /* PERBAIKAN: Logo Karang Taruna Pojok Kanan Atas Diperbesar */
+        /* FIX POSISI KANAN ATAS: Logo Karang Taruna Sejajar Horizontal dengan PMI */
         .absolute-right-top-kt {
             position: absolute;
             top: 22px;
@@ -102,7 +102,7 @@
             z-index: 500;
         }
         .absolute-right-top-kt img {
-            height: 80px; /* Diperbesar signifikan dari 60px */
+            height: 80px; /* Ukuran besar mantap */
             width: auto;
             object-fit: contain;
             filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
@@ -332,7 +332,7 @@
         .submit-action-btn:hover { background-color: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 12px 25px rgba(180, 20, 36, 0.35); }
         .submit-action-btn:disabled { background-color: #cbd5e1; box-shadow: none; cursor: not-allowed; transform: none; }
 
-        /* --- FOOTER --- */
+        /* --- FOOTER COOPERATIONS --- */
         footer {
             background-color: #0f172a;
             color: #94a3b8;
@@ -377,6 +377,7 @@
         .insta-branding { color: #fca5a5; text-decoration: none; font-weight: 700; }
         .insta-branding:hover { color: #ffffff; text-decoration: underline; }
 
+        /* Jajaran Kemitraan Keduanya Sukses Pindah ke Sini */
         .mosque-logo-row {
             display: flex;
             justify-content: center;
@@ -441,7 +442,7 @@
             box-shadow: 0 6px 18px rgba(180, 20, 36, 0.2); transition: var(--transition);
         }
 
-        /* RESPONSIVE DESIGN */
+        /* CONFIG MOBILE LAYOUT RESPONSIVE */
         @media (max-width: 480px) {
             .grid-requirements { grid-template-columns: 1fr; gap: 10px; }
             .grid-columns-2 { grid-template-columns: 1fr; gap: 0; }
@@ -451,9 +452,9 @@
             .section-card { padding: 25px 20px; }
             .absolute-left-top-pmi { top: 15px; left: 15px; }
             .logo-pmi-box { padding: 8px 16px; }
-            .logo-pmi-box img { height: 38px; } /* Responsif HP */
+            .logo-pmi-box img { height: 38px; } 
             .absolute-right-top-kt { top: 12px; right: 15px; }
-            .absolute-right-top-kt img { height: 56px; } /* Responsif HP */
+            .absolute-right-top-kt img { height: 56px; } 
         }
     </style>
 </head>
@@ -629,8 +630,8 @@
         <p>Instagram Official: <a href="https://instagram.com/karangtarunarw06pondokbenda" class="insta-branding" target="_blank">@karangtarunarw06pondokbenda</a></p>
         
         <div class="mosque-logo-row">
-            <img src="logo_yayasan_nh.png" class="logo-footer-img" alt="Logo Yayasan Masjid">
-            <img src="logo_remina.png" class="logo-footer-img" alt="Logo Remaja Masjid">
+            <img src="logo_yayasan_nh.jpg" class="logo-footer-img" alt="Logo Yayasan Masjid">
+            <img src="logo_remina.jpg" class="logo-footer-img" alt="Logo Remaja Masjid">
         </div>
 
         <div class="footer-copyright-layer">
